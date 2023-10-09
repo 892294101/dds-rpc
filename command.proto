@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+option go_package = "./;pcb";
+
+package pcb;
+
+service Greeter {
+    rpc Stop (StopCommand) returns (StopReply) {}
+    //rpc InfoAll (InfoAllCommand) returns (InfoAllReply) {}
+    //rpc InfoDetail (InfoDetailCommand) returns (InfoDetailReply) {}
+
+}
+
+
+message StopCommand {
+    uint32 instruction = 1; // 表示正常停止、还是强制停止
+}
+
+message StopReply {
+    uint32 ReturnStatus = 1; // 返回类型,0 表示发送成功，并正常返回。 1 表示无法正常停止，并返回为什么无法停止原因。 不管是否能停止，检查点信息都更新
+    string Content = 2; // 返回内容
+}
+
+/*
+
+message InfoAllCommand {
+    uint32 Instruction = 1;
+}
+
+message InfoAllReply {
+    string Dbtype = 1;
+    string Program = 2;
+    string Status = 3;
+    string GroupID = 4;
+    string Lag = 5;
+    string TimeSinceChkpt = 6;
+
+
+}
+
+message InfoDetailCommand {
+    uint32 Instruction = 1;
+}
+
+message InfoDetailReply {
+    string Dbtype = 1;
+    string Program = 2;
+    string GroupID = 3;
+    string LastStarted = 4;
+    string Status = 5;
+    uint64 FileNumber = 6;
+    uint64 FileOffset = 7;
+    uint64 LogNumber = 8;
+    uint64 LogOffset = 9;
+    string Lag = 10;
+    string TimeSinceChkpt = 11;
+}
+*/
