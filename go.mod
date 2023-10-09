@@ -1,4 +1,4 @@
-module github.com/892294101/ddsrpc
+module github.com/892294101/dds-rpc
 
 go 1.15
 
