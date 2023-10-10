@@ -1,4 +1,4 @@
-package dds_rpc
+package ddsrpc
 
 import (
 	"context"
